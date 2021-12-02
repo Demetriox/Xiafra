@@ -36,9 +36,9 @@ class MyApp extends StatelessWidget {
           ),
           initialRoute: '/', //first screen
           routes: {
-            '/': (context) => LoadingScreen(),
-            '/login': (context) => LoginScreen(),
-            '/home_screen': (context) => HomeScreen(),
+            // '/': (context) => LoadingScreen(),
+            // '/login': (context) => LoginScreen(),
+            // '/home_screen': (context) => HomeScreen(),
           },
         ));
   }
