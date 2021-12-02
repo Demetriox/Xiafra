@@ -3,7 +3,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class Session {
   final key = "TOKEN";
-  final storage = new FlutterSecureStorage();
+  final storage = const FlutterSecureStorage();
 
   set(String token) async {
     final data = json.encode(token);
