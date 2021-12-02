@@ -1,19 +1,18 @@
+import 'package:carrers/ui/screens/home_screen.dart';
+import 'package:carrers/ui/screens/loading_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 
 final GetIt getIt = GetIt.instance;
 
 void main() {
-  setupProviders();
-
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
-setupProviders() {}
-
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -21,25 +20,19 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
-    return MultiProvider(
-        providers: [
-          // ChangeNotifierProvider<ScannerProvider>(
-          //   create: (context) => ScannerProvider(),
-          // ),
-        ],
-        child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Traceable',
-          theme: ThemeData(
-            visualDensity: VisualDensity.adaptivePlatformDensity,
-            scaffoldBackgroundColor: Colors.white,
-          ),
-          initialRoute: '/', //first screen
-          routes: {
-            // '/': (context) => LoadingScreen(),
-            // '/login': (context) => LoginScreen(),
-            // '/home_screen': (context) => HomeScreen(),
-          },
-        ));
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Traceable',
+      theme: ThemeData(
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        scaffoldBackgroundColor: Colors.white,
+      ),
+      initialRoute: '/', //first screen
+      routes: {
+        '/': (context) => const LoadingScreen(),
+        // '/login': (context) => LoginScreen(),
+        '/home_screen': (context) => const HomeScreen(),
+      },
+    );
   }
 }

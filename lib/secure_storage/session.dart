@@ -16,7 +16,7 @@ class Session {
   get() async {
     final result = await storage.read(key: key);
     if (result != null) {
-      return json.decode(result);
+      return "hola";
     }
     return null;
   }
