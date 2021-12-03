@@ -1,19 +1,27 @@
-import 'package:carrers/secure_storage/session.dart';
+import 'package:carrers/providers/user_provider.dart';
 import 'package:carrers/ui/screens/home_screen.dart';
 import 'package:carrers/ui/screens/loading_screen.dart';
 import 'package:carrers/ui/screens/login_screen.dart';
+import 'package:carrers/ui/screens/sign_up_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:flutter/services.dart';
 
-import 'constants/constants.dart';
-import 'models/user_model.dart';
-
 final GetIt getIt = GetIt.instance;
 
-void main() {
+setupProviders() {
+  //HERE GOES ALL THE GET IT STUFF
+  GetIt.I.registerSingleton(UserLoged());
+}
+
+Future<void> main() async {
+  setupProviders();
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
+
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -43,7 +51,8 @@ class _MyAppState extends State<MyApp> {
       initialRoute: '/', //first screen
       routes: {
         '/': (context) => const LoadingScreen(),
-        '/login': (context) => const LoginScreen(),
+        '/sign_in': (context) => const LoginScreen(),
+        '/sign_up': (context) => const SignUpScreen(),
         '/home_screen': (context) => const HomeScreen(),
       },
     );

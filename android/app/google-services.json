@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "115355554008",
+    "project_id": "xiafra-ui",
+    "storage_bucket": "xiafra-ui.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:115355554008:android:5ebb3deda87ab9066007ad",
+        "android_client_info": {
+          "package_name": "com.example.carrers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "115355554008-akb05r3lgjvn069bkn7a9i21inltkmsu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.carrers",
+            "certificate_hash": "f4a5a1c4acc5228baf838a8eaf519428c4574a64"
+          }
+        },
+        {
+          "client_id": "115355554008-e3s24a6k4062d52hndl4felmddatalnv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAb6Sz5CGTPK_9vV83oXZ3TLjWdINuueNs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "115355554008-e3s24a6k4062d52hndl4felmddatalnv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,4 +1,3 @@
-import 'dart:collection';
 import 'dart:convert';
 import 'package:carrers/models/user_model.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -26,8 +25,10 @@ class Session {
 
   Future<User> getUser() async {
     final result = await storage.read(key: "user");
-    final User user = User.fromJson(json.decode(result!));
-    print(user);
+    if (result == null) {
+      return User();
+    }
+    final User user = User.fromJson(json.decode(result));
     if (user != User()) {
       return user;
     }

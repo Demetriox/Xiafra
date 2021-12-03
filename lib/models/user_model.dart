@@ -11,27 +11,30 @@ class User {
     this.career,
     this.accessToken,
     this.expires,
+    this.email,
   });
 
   String? userId;
   String? name;
   String? career;
   String? accessToken;
+  String? email;
   int? expires;
 
   factory User.fromJson(Map<String, dynamic> json) => User(
-    userId: json["UserId"] == null ? null : json["UserId"],
-    name: json["Name"] == null ? null : json["Name"],
-    career: json["Career"] == null ? null : json["Career"],
-    accessToken: json["AccessToken"] == null ? null : json["AccessToken"],
-    expires: json["Expires"] == null ? null : json["Expires"],
-  );
+        userId: json["UserId"],
+        name: json["Name"],
+        career: json["Career"],
+        accessToken: json["AccessToken"],
+        expires: json["Expires"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "UserId": userId == null ? null : userId,
-    "Name": name == null ? null : name,
-    "Career": career == null ? null : career,
-    "AccessToken": accessToken == null ? null : accessToken,
-    "Expires": expires == null ? null : expires,
-  };
+        "UserId": userId,
+        "Name": name,
+        "Career": career,
+        "AccessToken": accessToken,
+        "Expires": expires,
+        "Email": email,
+      };
 }

@@ -14,7 +14,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   initState() {
     super.initState();
-    loadUser();
+    // loadUser();
     load();
   }
 
@@ -23,26 +23,19 @@ class _LoadingScreenState extends State<LoadingScreen> {
     _getTokenFromSharedPref();
   }
 
-  //Information pre loaded, before app starts.
-  Future<void> loadUser() async {
-    Session().set("user", User(userId: "1", name: "Demetrio", career: "IQ", accessToken: "akljdh3q892hr239", expires: 4));
-  }
-
-  //Check storage of user auth
+  //Check storage of user   auth
   Future<void> _getTokenFromSharedPref() async {
     final user = await Session().getUser();
-    if (user.accessToken != null) {
+    if (user.career != null) {
       Future.delayed(Duration.zero, () {
         Navigator.of(context).pushNamedAndRemoveUntil(
-          '/home_screen',
-          (Route<dynamic> route) => true,
-          arguments: user
-        );
+            '/home_screen', (Route<dynamic> route) => true,
+            arguments: user);
       });
     } else {
       Future.delayed(Duration.zero, () {
         Navigator.of(context).pushNamedAndRemoveUntil(
-          '/login',
+          '/sign_in',
           (Route<dynamic> route) => true,
         );
       });
