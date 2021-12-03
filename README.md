@@ -1,4 +1,4 @@
-# carrers
+# careers
 
 A new Flutter project.
 
