@@ -11,7 +11,9 @@ class ButtonLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: btnFunc(),
+      onPressed: () {
+        btnFunc;
+      },
       style: ElevatedButton.styleFrom(primary: buttonColors.backgroundColor),
       child: Text(
         text,
