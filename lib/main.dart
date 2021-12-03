@@ -22,16 +22,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String career = "";
-  late Layout layout;
-  setValues() async {
-    career = await Session().getCareer();
-    layout = Layout(career);
-  }
   @override
   void initState() {
     super.initState();
-    setValues();
   }
 
   @override
