@@ -12,21 +12,26 @@ class Layout {
   Color backgroundFontColor = const Color(0xff000000);
   ButtonColors buttonPrimary = ButtonColors.empty();
   ButtonColors buttonSecondary = ButtonColors.empty();
-  Layout  (String carrera) {
-    switch(carrera) {
-      case "ISC": {
-        backgroundColor = const Color(0xffbdbdbd);
-        backgroundFontColor = const Color(0xff222222);
-        buttonPrimary = ButtonColors(const Color(0xffA13838), const Color(0xffFFFFFF));
-        buttonSecondary = ButtonColors(const Color(0xff385BA1), const Color(0xffFFFFFF));
-      }
-      break;
-      case "IQ": {
-        backgroundColor = const Color(0xffFFE6BA);
-        backgroundFontColor = const Color(0xff000000);
-        buttonPrimary = ButtonColors(const Color(0xff38A13C), const Color(0xffFFFFFF));
-      }
-      break;
+  Layout(String career) {
+    switch (career) {
+      case "ISC":
+        {
+          backgroundColor = const Color(0xffbdbdbd);
+          backgroundFontColor = const Color(0xff222222);
+          buttonPrimary =
+              ButtonColors(const Color(0xffA13838), const Color(0xffFFFFFF));
+          buttonSecondary =
+              ButtonColors(const Color(0xff385BA1), const Color(0xffFFFFFF));
+        }
+        break;
+      case "IQ":
+        {
+          backgroundColor = const Color(0xffFFE6BA);
+          backgroundFontColor = const Color(0xff000000);
+          buttonPrimary =
+              ButtonColors(const Color(0xff38A13C), const Color(0xffFFFFFF));
+        }
+        break;
     }
   }
 }
