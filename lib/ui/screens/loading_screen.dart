@@ -1,3 +1,4 @@
+import 'package:carrers/models/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:carrers/secure_storage/session.dart';
 
@@ -9,9 +10,11 @@ class LoadingScreen extends StatefulWidget {
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
+  late User user;
   @override
   initState() {
     super.initState();
+    loadUser();
     load();
   }
 
@@ -20,15 +23,22 @@ class _LoadingScreenState extends State<LoadingScreen> {
     _getTokenFromSharedPref();
   }
 
+  //Information pre loaded, before app starts.
+  Future<void> loadUser() async {
+    Session().set("user", User(userId: "1", name: "Demetrio", career: "ISC", accessToken: "akljdh3q892hr239", expires: 4));
+  }
+
   //Check storage of user auth
   Future<void> _getTokenFromSharedPref() async {
-    final token = await Session().get();
 
-    if (token != null) {
+    final user = await Session().getUser();
+
+    if (user.accessToken != null) {
       Future.delayed(Duration.zero, () {
         Navigator.of(context).pushNamedAndRemoveUntil(
           '/home_screen',
           (Route<dynamic> route) => true,
+          arguments: user
         );
       });
     } else {
