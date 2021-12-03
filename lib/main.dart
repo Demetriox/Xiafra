@@ -24,15 +24,14 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   String career = "";
   late Layout layout;
-  getCareer() async {
+  setValues() async {
     career = await Session().getCareer();
+    layout = Layout(career);
   }
   @override
   void initState() {
     super.initState();
-    Session().set("user", User(userId: "1", name: "Demetrio", career: "ISC", accessToken: "akljdh3q892hr239", expires: 4));
-    getCareer();
-    layout = Layout(career);
+    setValues();
   }
 
   @override

@@ -5,7 +5,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class Session {
   final token = "token";
-  final carrera = "carrera";
+  final career = "career";
   final storage = const FlutterSecureStorage();
 
   set<T>(String key, T data) async {
@@ -35,19 +35,15 @@ class Session {
   }
 
   Future<String> getToken() async {
-    final result = await storage.read(key: token);
-    if (result != null) {
-      return result;
-    }
-    return "";
+    final result = await storage.read(key: "user");
+    final User user = User.fromJson(json.decode(result!));
+    return user.accessToken!;
   }
 
   Future<String> getCareer() async {
-    final result = await storage.read(key: carrera);
-    if (result != null) {
-      return result;
-    }
-    return "";
+    final result = await storage.read(key: "user");
+    final User user = User.fromJson(json.decode(result!));
+    return user.career!;
   }
 
   delete(String key) async {

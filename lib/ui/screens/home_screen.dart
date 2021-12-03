@@ -35,14 +35,14 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: layout.backgroundColor,
       body: SafeArea(
-        child: Column(
+        child: ListView(
           children: [
             ConditionalSwitch.single<String>(
               context: context,
               valueBuilder: (BuildContext context) => user.career!,
               caseBuilders: {
-                'ISC': (BuildContext context) => ISC(),
-                'IQ': (BuildContext context) => IQ(),
+                'ISC': (BuildContext context) => const ISC(),
+                'IQ': (BuildContext context) => const IQ(),
               },
               fallbackBuilder: (BuildContext context) => Text('None of the cases matched!'),
             ),
