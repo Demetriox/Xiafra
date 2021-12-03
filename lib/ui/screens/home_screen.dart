@@ -24,7 +24,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void didChangeDependencies() {
-    // TODO: implement didChangeDependencies
     super.didChangeDependencies();
     user = ModalRoute.of(context)?.settings.arguments as User;
     layout = Layout(user.career!);
@@ -41,8 +40,8 @@ class _HomeScreenState extends State<HomeScreen> {
               context: context,
               valueBuilder: (BuildContext context) => user.career!,
               caseBuilders: {
-                'ISC': (BuildContext context) => const ISC(),
-                'IQ': (BuildContext context) => const IQ(),
+                'ISC': (BuildContext context) => ISC(user),
+                'IQ': (BuildContext context) => IQ(user),
               },
               fallbackBuilder: (BuildContext context) => Text('None of the cases matched!'),
             ),

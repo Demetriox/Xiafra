@@ -1,4 +1,5 @@
 import 'package:carrers/constants/constants.dart';
+import 'package:carrers/models/user_model.dart';
 import 'package:carrers/secure_storage/session.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -6,28 +7,26 @@ import 'package:flutter_conditional_rendering/conditional.dart';
 import 'package:flutter_conditional_rendering/conditional_switch.dart';
 
 class ISC extends StatefulWidget {
-  const ISC({Key? key}) : super(key: key);
+  final User user;
+  const ISC(this.user, {Key? key}) : super(key: key);
 
   @override
   _ISCState createState() => _ISCState();
 }
 
 class _ISCState extends State<ISC> {
-  String career = "";
   String fieldValue = "";
+  late Layout layout;
   final TextEditingController _fieldController = TextEditingController();
-  getCareer() async {
-    career = await Session().getCareer();
-  }
+
   @override
   void initState() {
     super.initState();
-    getCareer();
+    layout = Layout(widget.user.career!);
   }
 
   @override
   Widget build(BuildContext context) {
-    Layout layout = Layout(career);
     return Container(
       height: MediaQuery.of(context).size.height,
       child: Padding(
@@ -48,7 +47,7 @@ class _ISCState extends State<ISC> {
             ),
             Flexible(
                 flex: 1,
-                child: Text("$fieldValue")
+                child: Text(fieldValue)
             ),
             Flexible(
                 flex: 1,

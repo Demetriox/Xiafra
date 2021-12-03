@@ -25,14 +25,12 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
   //Information pre loaded, before app starts.
   Future<void> loadUser() async {
-    Session().set("user", User(userId: "1", name: "Demetrio", career: "ISC", accessToken: "akljdh3q892hr239", expires: 4));
+    Session().set("user", User(userId: "1", name: "Demetrio", career: "IQ", accessToken: "akljdh3q892hr239", expires: 4));
   }
 
   //Check storage of user auth
   Future<void> _getTokenFromSharedPref() async {
-
     final user = await Session().getUser();
-
     if (user.accessToken != null) {
       Future.delayed(Duration.zero, () {
         Navigator.of(context).pushNamedAndRemoveUntil(
