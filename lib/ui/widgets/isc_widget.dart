@@ -19,6 +19,15 @@ class _ISCState extends State<ISC> {
   late Layout layout;
   final TextEditingController _fieldController = TextEditingController();
 
+  showModal() {
+    showDialog(
+      context: context,
+        builder: (BuildContext context) => AlertDialog(title: Center(
+            child: Text(widget.user.career!)
+        ))
+    );
+  }
+
   @override
   void initState() {
     super.initState();
@@ -36,14 +45,7 @@ class _ISCState extends State<ISC> {
           children: <Widget> [
             Flexible (
                 flex: 1,
-                child: TextField(
-                  controller: _fieldController,
-                  onChanged: (value) {
-                    setState(() {
-                      fieldValue = value;
-                    });
-                  },
-                )
+                child: TextField(controller: _fieldController)
             ),
             Flexible(
                 flex: 1,
@@ -54,13 +56,19 @@ class _ISCState extends State<ISC> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    ElevatedButton(onPressed: () => {}, child: Text("ISC"), style: ElevatedButton.styleFrom(
+                    ElevatedButton(onPressed: () => {
+                      showModal()
+                    }, child: const Text("ISC"), style: ElevatedButton.styleFrom(
                       primary: layout.buttonPrimary.backgroundColor,
                       textStyle: TextStyle(
                         color: layout.buttonPrimary.fontColor
-                      )
+                      ),
                     )),
-                    ElevatedButton(onPressed: () => {}, child: Text("Mostrar"), style: ElevatedButton.styleFrom(
+                    ElevatedButton(onPressed: () => {
+                      setState(() {
+                        fieldValue = _fieldController.text;
+                      })
+                    }, child: const Text("Mostrar"), style: ElevatedButton.styleFrom(
                     primary: layout.buttonSecondary.backgroundColor,
                         textStyle: TextStyle(
                             color: layout.buttonSecondary.fontColor

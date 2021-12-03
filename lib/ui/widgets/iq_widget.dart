@@ -16,14 +16,26 @@ class IQ extends StatefulWidget {
 
 class _IQState extends State<IQ> {
   String career = "";
-  String fieldValue = "";
+  String fieldOneValue = "";
+  String fieldTwoValue = "";
+  String labelValue = "";
   late Layout layout;
-  final TextEditingController _fieldController = TextEditingController();
+  final TextEditingController _fieldOne = TextEditingController();
+  final TextEditingController _fieldTwo = TextEditingController();
 
   @override
   void initState() {
     super.initState();
     layout = Layout(widget.user.career!);
+  }
+
+  showModal(String text) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) => AlertDialog(title: Center(
+            child: Text(text)
+        ))
+    );
   }
 
   @override
@@ -38,17 +50,28 @@ class _IQState extends State<IQ> {
             Flexible (
                 flex: 1,
                 child: TextField(
-                  controller: _fieldController,
+                  controller: _fieldOne,
                   onChanged: (value) {
                     setState(() {
-                      fieldValue = value;
+                      fieldOneValue = value;
+                    });
+                  },
+                )
+            ),
+            Flexible (
+                flex: 1,
+                child: TextField(
+                  controller: _fieldTwo,
+                  onChanged: (value) {
+                    setState(() {
+                      labelValue = _fieldTwo.text;
                     });
                   },
                 )
             ),
             Flexible(
                 flex: 1,
-                child: Text("$fieldValue")
+                child: Text(labelValue)
             ),
             Flexible(
                 flex: 1,
@@ -56,7 +79,9 @@ class _IQState extends State<IQ> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Expanded(child:
-                      ButtonLayout(layout.buttonPrimary, "IQ", () => {})
+                      ButtonLayout(layout.buttonPrimary, "IQ", () => {
+                        showModal("Ing. Quimica " + _fieldOne.text)
+                      })
                     ),
                   ],
                 )
