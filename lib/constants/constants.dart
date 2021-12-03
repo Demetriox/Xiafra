@@ -6,13 +6,13 @@ class Layout {
   Layout  (String carrera) {
     switch(carrera) {
       case "ISC": {
-        backgroundColor = const Color(0xffBDBDBD);
-        backgroundColor = const Color(0xff222222);
+        backgroundColor = const Color(0xffbdbdbd);
+        backgroundFontColor = const Color(0xff222222);
       }
       break;
       case "IQ": {
         backgroundColor = const Color(0xffFFE6BA);
-        backgroundColor = const Color(0xff000000);
+        backgroundFontColor = const Color(0xff000000);
       }
       break;
     }

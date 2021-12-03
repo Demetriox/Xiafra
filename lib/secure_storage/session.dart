@@ -25,9 +25,9 @@ class Session {
   }
 
   Future<User> getUser() async {
-    final result = await storage.(key: "user");
-    HashMap.of(result!);
-    final user = json.decode(result.!) as User;
+    final result = await storage.read(key: "user");
+    final User user = User.fromJson(json.decode(result!));
+    print(user);
     if (user != User()) {
       return user;
     }
