@@ -1,23 +1,21 @@
+import 'package:carrers/constants/constants.dart';
 import 'package:flutter/material.dart';
 
 class ButtonLayout extends StatelessWidget {
-  Color color;
-  String text;
-  Function btnFunc;
-  Color bgColor;
+  final ButtonColors buttonColors;
+  final String text;
+  final Function btnFunc;
 
-  ButtonLayout(this.color, this.bgColor, this.text, this.btnFunc);
+  const ButtonLayout(this.buttonColors, this.text, this.btnFunc, {Key? key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {
-        btnFunc;
-      },
-      style: ElevatedButton.styleFrom(primary: bgColor),
+      onPressed: btnFunc(),
+      style: ElevatedButton.styleFrom(primary: buttonColors.backgroundColor),
       child: Text(
         text,
-        style: TextStyle(color: color),
+        style: TextStyle(color: buttonColors.fontColor),
       ),
     );
   }

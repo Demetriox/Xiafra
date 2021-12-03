@@ -1,5 +1,6 @@
 import 'package:carrers/constants/constants.dart';
 import 'package:carrers/secure_storage/session.dart';
+import 'package:carrers/ui/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_conditional_rendering/conditional.dart';
 import 'package:flutter_conditional_rendering/conditional_switch.dart';
@@ -55,13 +56,7 @@ class _IQState extends State<IQ> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Expanded(child:
-                      ElevatedButton(onPressed: () => {}, child: Text("IQ"), style: ElevatedButton.styleFrom(
-                            primary: layout.buttonPrimary.backgroundColor,
-                            textStyle: TextStyle(
-                                color: layout.buttonPrimary.fontColor
-                            )
-                        )
-                      )
+                      ButtonLayout(layout.buttonPrimary, "IQ", () => {})
                     ),
                   ],
                 )
